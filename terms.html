@@ -57,21 +57,24 @@ html[data-lang="en"] .ru { display: none !important; }
 .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
 
 header.top {
-  position: sticky; top: 0; z-index: 10;
+  position: relative; z-index: 10;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   background: rgba(0, 0, 0, .75);
   border-bottom: 1px solid var(--line);
 }
-header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 12px; padding-top: 18px; padding-bottom: 18px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 800; letter-spacing: .14em; font-size: 15px; }
 .brand:hover { text-decoration: none; }
 .brand svg { height: 36px; width: auto; filter: drop-shadow(0 0 8px rgba(60, 222, 2, .35)); }
 .brand b { color: var(--green); font-weight: 800; }
 
-nav.links { display: flex; gap: 4px; }
-nav.links a { color: var(--muted); font-size: 14px; padding: 7px 11px; border-radius: 10px; }
-nav.links a:hover { color: var(--text); background: var(--card-2); text-decoration: none; }
-nav.links a.active { color: var(--green); background: var(--card-2); }
+nav.links { order: 3; width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+nav.links a {
+  color: var(--text); font-size: 15px; padding: 11px 16px; border-radius: 13px;
+  background: var(--card); border: 1px solid var(--line);
+}
+nav.links a:hover { border-color: rgba(60, 222, 2, .45); text-decoration: none; }
+nav.links a.active { color: var(--green); border-color: var(--green); background: rgba(60, 222, 2, .08); }
 
 .lang {
   background: var(--card-2); border: 1px solid var(--line); color: var(--text);
@@ -183,7 +186,6 @@ footer.site nav a:hover { color: var(--green); }
 
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
-  nav.links { display: none; }
   .toc ol { columns: 1; }
   .hero { padding: 32px 20px 30px; margin-top: 18px; }
   .hero .row { gap: 16px; }
@@ -199,12 +201,12 @@ footer.site nav a:hover { color: var(--green); }
   <header class="top">
     <div class="wrap">
       <a class="brand" href="https://t.me/cloyssionApp"><svg viewBox="290 40 680 1165" aria-hidden="true"><path fill="#3cde02" fill-rule="evenodd" d="M 949.33,885.00 L 946.33,885.00 L 769.00,1024.33 L 739.00,1106.33 L 740.33,1109.67 L 743.33,1109.67 L 950.67,942.33 L 950.67,886.33 Z M 315.33,870.00 L 313.00,872.33 L 314.00,933.33 L 523.33,1103.67 L 529.33,1105.67 L 530.67,1102.33 L 501.67,1017.33 Z M 737.00,198.33 L 737.00,260.33 L 921.33,383.67 L 936.33,392.67 L 940.67,391.33 L 940.67,326.33 L 937.33,323.00 L 743.33,198.00 L 738.33,197.00 Z M 515.67,198.33 L 511.33,197.00 L 316.33,323.00 L 313.00,326.33 L 312.00,344.33 L 313.00,391.33 L 314.33,392.67 L 319.33,391.67 L 515.67,260.33 Z M 627.33,51.00 L 623.33,51.00 L 561.00,140.33 L 616.00,267.33 L 623.33,279.67 L 627.67,276.33 L 688.67,142.33 L 687.67,138.33 Z"/><path fill="#f9f8f8" fill-rule="evenodd" d="M 651.33,305.00 L 645.33,306.00 L 640.00,313.33 L 640.00,1059.33 L 642.33,1061.67 L 733.33,995.67 L 955.67,828.33 L 950.33,822.00 L 902.33,786.00 L 898.33,786.00 L 723.33,907.00 L 718.67,905.33 L 718.67,477.33 L 722.33,474.67 L 812.00,529.33 L 812.00,575.33 L 813.33,576.67 L 823.33,572.67 L 944.33,496.67 L 945.67,492.33 Z M 602.33,304.00 L 345.33,466.00 L 302.00,495.33 L 361.33,534.67 L 366.00,539.33 L 367.00,828.33 L 563.00,987.33 L 564.00,1141.33 L 604.33,1192.67 L 607.33,1192.67 L 608.67,1191.33 L 607.67,905.33 L 458.67,792.33 L 457.67,767.33 L 458.67,523.33 L 606.67,431.33 L 606.67,305.33 Z"/></svg><span>CLOY<b>SSION</b></span></a>
-      <nav class="links">
-        <a href="faq.html"><span class="ru">FAQ</span><span class="en">FAQ</span></a>
-        <a class="active" href="terms.html"><span class="ru">Условия</span><span class="en">Terms</span></a>
-        <a href="privacy.html"><span class="ru">Конфиденциальность</span><span class="en">Privacy</span></a>
-      </nav>
       <button id="lang-btn" class="lang" type="button">EN</button>
+      <nav class="links">
+        <a class="active" href="terms.html"><span class="ru">Условия использования</span><span class="en">Terms of use</span></a>
+        <a href="privacy.html"><span class="ru">Политика конфиденциальности</span><span class="en">Privacy policy</span></a>
+        <a href="faq.html"><span class="ru">FAQ</span><span class="en">FAQ</span></a>
+      </nav>
     </div>
   </header>
 
@@ -374,10 +376,6 @@ footer.site nav a:hover { color: var(--green); }
   <footer class="site">
     <div class="wrap">
       <div>© 2026 cloyssion</div>
-      <nav>
-        <a href="privacy.html"><span class="ru">Конфиденциальность</span><span class="en">Privacy</span></a>
-        <a href="faq.html"><span class="ru">FAQ</span><span class="en">FAQ</span></a>
-      </nav>
     </div>
   </footer>
 
